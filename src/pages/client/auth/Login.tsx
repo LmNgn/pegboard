@@ -4,8 +4,10 @@ import renderError from "../../../utils/renderError";
 import handleAuthForm from "../../../utils/handleAuthForm";
 
 const Login = () => {
-  const { register, handleSubmit, errors, onSubmit } =
-    handleAuthForm(LoginSchema);
+  const { register, handleSubmit, errors, onSubmit } = handleAuthForm(
+    LoginSchema,
+    "Đăng nhập"
+  );
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,11 +33,13 @@ const Login = () => {
           <button type="submit">Đăng nhập</button>
         </div>
       </form>
+      {/* Phương thức đăng nhập khác */}
       <span>Hoặc</span>
       <div>
         <span>Facebook</span>
         <span>Google</span>
       </div>
+      {/* chuyển sang trang đăng ký */}
       <span>
         Bạn chưa có tài khoản. <Link to="/register">Đăng ký</Link> ngay
       </span>
