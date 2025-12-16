@@ -1,13 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { profileSchema } from "../../../schema/settingSchema";
 const Profile = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
   } = useForm({ resolver: zodResolver(profileSchema) });
   const onSubmit = async () => {};
   return (

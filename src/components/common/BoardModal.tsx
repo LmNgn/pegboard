@@ -4,7 +4,7 @@ import { boardSchema } from "../../schema/boardSchema";
 import renderError from "../../utils/renderError";
 import handleAuthForm from "../../utils/handleAuthForm";
 import { createBoard } from "../../api/board";
-import { addBoard, getBoards } from "../../features/boardSlices";
+import { addBoard } from "../../features/boardSlices";
 import toast from "react-hot-toast";
 import type { Board } from "../../types/board";
 import { useNavigate } from "react-router-dom";

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { LoginSchema } from "../../../schema/authSchema";
 import renderError from "../../../utils/renderError";
 import handleAuthForm from "../../../utils/handleAuthForm";

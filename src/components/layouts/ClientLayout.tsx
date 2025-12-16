@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Layout, theme, Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { Layout, theme, Drawer } from "antd";
 import HeaderContent from "../common/Header";
 import Sidebar from "../common/Sidebar";
 import { Outlet } from "react-router-dom";
