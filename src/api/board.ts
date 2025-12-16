@@ -6,7 +6,7 @@ export const getBoards = async () => {
   return data;
 };
 
-export const getBoard = async (id: number) => {
+export const getBoard = async (id: number | string) => {
   const { data } = await api.get(`/boards/${id}`);
   return data;
 };

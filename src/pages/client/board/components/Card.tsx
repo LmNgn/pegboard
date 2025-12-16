@@ -66,10 +66,10 @@ const CardItem = ({ card, columnId, onDelete, onUpdate }: CardItemProps) => {
               onClick={() => setIsEditing(true)}
             />
             <Popconfirm
-              title="Delete card?"
+              title="Xóa thẻ?"
               onConfirm={onDelete}
-              okText="Yes"
-              cancelText="No"
+              okText="Xác nhận"
+              cancelText="Hủy"
             >
               <Button
                 type="text"

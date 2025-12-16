@@ -10,13 +10,13 @@ const Register = () => {
     "Đăng ký"
   );
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-blue-200 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
         {/*  Container */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Đăng ký</h1>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Treno</h1>
             <p className="text-gray-600">Tạo tài khoản mới của bạn</p>
           </div>
 
@@ -119,6 +119,7 @@ const Register = () => {
               <input
                 id="terms"
                 type="checkbox"
+                {...register("terms")}
                 className="h-4 w-4 mt-1 text-purple-600 focus:ring-purple-500 border-gray-300 rounded cursor-pointer"
               />
               <label
@@ -134,11 +135,12 @@ const Register = () => {
                 </a>
               </label>
             </div>
+            {renderError(errors, "terms")}
 
             {/* Submit  */}
             <button
               onClick={handleSubmit(onSubmit)}
-              className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-blue-400 text-white py-3 rounded-lg font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               Đăng ký
             </button>

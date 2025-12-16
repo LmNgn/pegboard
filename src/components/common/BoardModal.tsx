@@ -4,9 +4,10 @@ import { boardSchema } from "../../schema/boardSchema";
 import renderError from "../../utils/renderError";
 import handleAuthForm from "../../utils/handleAuthForm";
 import { createBoard } from "../../api/board";
-import { addBoard } from "../../features/boardSlices";
+import { addBoard, getBoards } from "../../features/boardSlices";
 import toast from "react-hot-toast";
 import type { Board } from "../../types/board";
+import { useNavigate } from "react-router-dom";
 
 export function CreateBoardModal({
   open,
@@ -20,13 +21,15 @@ export function CreateBoardModal({
     boardSchema,
     "Tạo bảng"
   );
+  const nav = useNavigate();
   // tạo wrapper cho onSubmit để thêm Redux
   const handleCreateBoard = async (data: Board) => {
     try {
-      const newBoard = { ...data, stared: false, ownerId: 1 };
+      const newBoard = { ...data, stared: false, ownerId: 1, columns: [] };
       const res = await createBoard(newBoard);
 
       dispatch(addBoard(res.data));
+      nav(0);
       toast.success("Tạo bảng thành công");
       reset();
       onClose();

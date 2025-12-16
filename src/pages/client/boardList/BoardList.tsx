@@ -171,7 +171,7 @@ const BoardList = () => {
                       type="primary"
                       size="large"
                       icon={<PlusOutlined />}
-                      onClick={() => navigate("/boards/create")}
+                      onClick={() => setShowCreateBoardModal(true)}
                       className="bg-blue-500 hover:bg-blue-600"
                     >
                       Hãy tạo bảng mới

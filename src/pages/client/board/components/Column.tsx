@@ -90,8 +90,8 @@ const ColumnItem = ({
             title="Xóa cột?"
             description="Toàn bộ thẻ sẽ bị xóa"
             onConfirm={onDelete}
-            okText="Yes"
-            cancelText="No"
+            okText="Xác nhận"
+            cancelText="Hủy"
           >
             <Button
               type="text"
@@ -133,7 +133,7 @@ const ColumnItem = ({
           className="w-full hover:bg-gray-100 hover:border-gray-400"
           size="small"
         >
-          Add Card
+          Thêm thẻ
         </Button>
       </div>
     </div>

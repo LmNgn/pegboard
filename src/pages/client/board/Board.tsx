@@ -58,7 +58,7 @@ const Board = () => {
       await axios.put(`http://localhost:3000/boards/${id}`, newBoard);
     },
     onSuccess: () => {
-      message.success("Board updated successfully");
+      message.success("Cập nhật bảng thành công");
     },
   });
 
@@ -67,7 +67,7 @@ const Board = () => {
       await axios.delete(`http://localhost:3000/boards/${id}`);
     },
     onSuccess: () => {
-      message.success("Board deleted successfully");
+      message.success("Xóa bảng thành công");
       navigate("/");
     },
   });
@@ -247,13 +247,13 @@ const Board = () => {
     {
       key: "edit",
       icon: <EditOutlined />,
-      label: "Rename Board",
+      label: "Đổi tên bảng",
       onClick: () => setIsEditingTitle(true),
     },
     {
       key: "delete",
       icon: <DeleteOutlined />,
-      label: "Delete Board",
+      label: "Xóa bảng",
       danger: true,
       onClick: handleDeleteBoard,
     },
@@ -279,9 +279,7 @@ const Board = () => {
               icon={<HomeOutlined />}
               onClick={() => navigate("/")}
               className="text-white hover:bg-white/10 border-0"
-            >
-              <span className="hidden sm:inline">Home</span>
-            </Button>
+            ></Button>
 
             {isEditingTitle ? (
               <Input
@@ -300,6 +298,13 @@ const Board = () => {
                 {board.title}
               </h1>
             )}
+            <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
+              <Button
+                type="text"
+                icon={<MoreOutlined />}
+                className="text-white hover:bg-white/10 border-0"
+              />
+            </Dropdown>
           </div>
 
           {/* Right Section */}
@@ -318,14 +323,6 @@ const Board = () => {
                 </Select.Option>
               ))}
             </Select>
-
-            <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
-              <Button
-                type="text"
-                icon={<MoreOutlined />}
-                className="text-white hover:bg-white/10 border-0"
-              />
-            </Dropdown>
           </div>
         </div>
       </div>
