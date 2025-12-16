@@ -3,12 +3,14 @@ import renderError from "../../../utils/renderError";
 import handleAuthForm from "../../../utils/handleAuthForm";
 
 const ResetPassword = () => {
-  const { register, handleSubmit, reset, errors, onSubmit } =
-    handleAuthForm(RegisterSchema);
+  const { register, handleSubmit, errors, onSubmit } = handleAuthForm(
+    RegisterSchema,
+    "Reset"
+  );
 
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="">Mật khẩu mới</label>
           <input type="password" {...register("password")} />

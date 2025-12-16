@@ -1,4 +1,4 @@
-import ClientLayout from "../components/layouts/ClientLayout";
+import AuthLayout from "../components/layouts/AuthLayout";
 import Login from "../pages/client/auth/Login";
 import Register from "../pages/client/auth/Register";
 import ForgotPassword from "../pages/client/forgotPassword/ForgotPassword";
@@ -7,7 +7,7 @@ import ResetPassword from "../pages/client/resetPassword/ResetPassword";
 const AuthRoute = [
   {
     path: "",
-    Component: ClientLayout,
+    Component: AuthLayout,
     children: [
       { path: "login", Component: Login },
       { path: "register", Component: Register },

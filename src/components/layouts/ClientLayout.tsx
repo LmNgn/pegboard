@@ -1,34 +1,55 @@
-import React from "react";
-
-import { Layout, theme } from "antd";
+import React, { useState } from "react";
+import { Layout, theme, Drawer, Button } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import HeaderContent from "../common/Header";
 import Sidebar from "../common/Sidebar";
 import { Outlet } from "react-router-dom";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
-    <Layout>
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo" />
-        <HeaderContent />
-      </Header>
+    <Layout style={{ minHeight: "100vh" }}>
+      <HeaderContent />
+
       <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }}>
+        {/* Sidebar desktop */}
+        <Sider
+          width={200}
+          collapsedWidth={0}
+          style={{ background: colorBgContainer }}
+          className="hidden md:block"
+        >
           <Sidebar />
         </Sider>
-        <Layout style={{ padding: "0 24px 24px" }}>
+
+        {/* Nút mở menu mobile */}
+
+        {/* Drawer mobile */}
+        <Drawer
+          title="Menu"
+          placement="left"
+          onClose={() => setDrawerOpen(false)}
+          open={drawerOpen}
+        >
+          <Sidebar />
+        </Drawer>
+
+        {/* Content */}
+        <Layout style={{ padding: "0 24px 24px", flex: 1 }}>
           <Content
             style={{
               padding: 24,
               margin: 0,
-              minHeight: 280,
+              minHeight: "100%",
               borderRadius: borderRadiusLG,
+              background: colorBgContainer,
             }}
           >
             <Outlet />
