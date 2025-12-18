@@ -13,6 +13,8 @@ import {
 import Sidebar from "../common/Sidebar";
 import { Drawer } from "antd";
 import { CreateBoardModal } from "./BoardModal";
+import LogoutModal from "./LogoutModal";
+import { handleLogout } from "../../utils/handleLogout";
 
 const TrelloHeader = () => {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
@@ -20,6 +22,8 @@ const TrelloHeader = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const useLogout = handleLogout();
   const createItems = [
     {
       key: "1",
@@ -58,7 +62,7 @@ const TrelloHeader = () => {
       onClick: () => console.log("Mở chủ đề"),
     },
     {
-      key: "theme",
+      key: "language",
       label: "Ngôn ngữ",
       icon: <Languages className="w-4 h-4" />,
       onClick: () => console.log("Mở cài đặt"),
@@ -67,7 +71,7 @@ const TrelloHeader = () => {
       key: "logout",
       label: "Đăng xuất",
       icon: <LogOut className="w-4 h-4" />,
-      onClick: () => console.log("Đăng xuất"),
+      onClick: () => setShowLogoutModal(true),
     },
   ];
 
@@ -208,6 +212,11 @@ const TrelloHeader = () => {
       <CreateBoardModal
         open={showCreateBoardModal}
         onClose={() => setShowCreateBoardModal(false)}
+      />
+      <LogoutModal
+        open={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={useLogout}
       />
     </header>
   );
