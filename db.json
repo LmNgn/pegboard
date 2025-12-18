@@ -22,6 +22,18 @@
       "password": "123123123",
       "confirmPassword": "123123123",
       "id": 3
+    },
+    {
+      "email": "phuclam6987@gmail.com",
+      "password": "$2a$10$n4mkq9Yry31aXrsGyvG40usreuC/LapspAtf7Zd9QmyJsk1MAYB66",
+      "id": 4
+    },
+    {
+      "email": "gintoki6987@gmail.com",
+      "password": "$2a$10$QA5s28w.e3yyGarGZygdZ.rgN8nQ0zMLr7txCDF0Bx0X/m7kNdJgK",
+      "username": "oril123",
+      "terms": true,
+      "id": 5
     }
   ],
   "boards": [
@@ -35,8 +47,8 @@
           "title": "New Column",
           "cards": [
             {
-              "id": "card-1765860175902",
-              "title": "",
+              "id": "card-1765869149161",
+              "title": "New Card",
               "columnId": "col-1765859405202"
             }
           ]
@@ -44,13 +56,7 @@
         {
           "id": "col-1765859405941",
           "title": "New Column",
-          "cards": [
-            {
-              "id": "card-1765869149161",
-              "title": "New Card",
-              "columnId": "col-1765859405941"
-            }
-          ]
+          "cards": []
         },
         {
           "id": "column-1765862651657",

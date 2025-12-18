@@ -7,7 +7,7 @@ import ResetPassword from "../pages/client/resetPassword/ResetPassword";
 const AuthRoute = [
   {
     path: "",
-    Component: AuthLayout,
+    element: <AuthLayout />,
     children: [
       { path: "login", Component: Login },
       { path: "register", Component: Register },

@@ -1,15 +1,15 @@
-import { Mail, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Mail } from "lucide-react";
 
 const ForgotPassword = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-gradient-to-bl from-white via-blue-100 to-blue-800 bg-[length:200%_200%] animate-gradient">
       <div className="w-full max-w-md">
         {/*  Container */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="mx-auto w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-4">
-              <Mail className="h-8 w-8 text-teal-600" />
+            <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <Mail className="h-8 w-8 text-blue-600" />
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">
               Quên mật khẩu?
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
           </div>
 
           {/* Form  */}
-          <div className="space-y-6">
+          <form className="space-y-6">
             {/* Email  */}
             <div>
               <label
@@ -38,7 +38,7 @@ const ForgotPassword = () => {
                   id="email"
                   type="email"
                   name="email"
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200 outline-none"
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
                   placeholder="name@example.com"
                 />
               </div>
@@ -47,17 +47,17 @@ const ForgotPassword = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-teal-600 text-white py-3 rounded-lg font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-200 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               Xác nhận
             </button>
-          </div>
+          </form>
 
           {/* về đăng nhập */}
           <div className="mt-8">
             <a
               href="/login"
-              className="flex items-center justify-center text-sm font-medium text-teal-600 hover:text-teal-500 transition group"
+              className="flex items-center justify-center text-sm font-medium text-blue-600 hover:text-blue-500 transition group"
             >
               <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
               Quay về đăng nhập

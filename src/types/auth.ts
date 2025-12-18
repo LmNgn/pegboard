@@ -3,4 +3,10 @@ export interface AuthInfo {
   username?: string;
   password: string;
   confirmPassword?: string;
+  remember?: boolean;
+  terms?: boolean;
 }
+export interface TokenPops {
+  accessToken: string;
+}
+export type FullAuth = AuthInfo & TokenPops;

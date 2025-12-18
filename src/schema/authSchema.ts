@@ -7,6 +7,7 @@ export const LoginSchema = z.object({
     .string({ message: "Mật khẩu không được bỏ trống" })
     .min(8, { message: "Mật khẩu phải có ít nhất 8 ký tự" })
     .max(20, { message: "Mật khẩu không được quá 20 ký tự" }),
+  remember: z.boolean().optional(),
 });
 
 export const RegisterSchema = z
@@ -26,6 +27,9 @@ export const RegisterSchema = z
       .string({ message: "Vui lòng nhập lại mật khẩu" })
       .min(8, { message: "Xác nhận mật khẩu phải có ít nhất 8 ký tự" })
       .max(20, { message: "Xác nhận mật khẩu không được quá 20 ký tự" }),
+    terms: z.literal(true, {
+      message: "Bạn phải đồng ý với điều khoản và dịch vụ",
+    }),
   })
   .refine((val) => val.confirmPassword === val.password, {
     message: "Mật khẩu xác nhận không khớp",

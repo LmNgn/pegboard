@@ -5,21 +5,31 @@ import HomePage from "../pages/client/homepage/HomePage";
 import BoardList from "../pages/client/boardList/BoardList";
 import Board from "../pages/client/board/Board";
 import BoardLayout from "../components/layouts/BoardLayout";
+import PrivateRoute from "./privateRoute/PrivateRoute";
 
 const ClientRoute = [
   {
     path: "",
-    Component: ClientLayout,
+    element: (
+      <PrivateRoute>
+        <ClientLayout />
+      </PrivateRoute>
+    ),
     children: [
       { index: true, element: <Navigate to="/home" /> },
-      { path: "home", Component: HomePage },
-      { path: "boards", Component: BoardList },
+      { path: "home", element: <HomePage /> },
+      { path: "boards", element: <BoardList /> },
     ],
   },
   {
     path: "",
-    Component: BoardLayout,
-    children: [{ path: "boards/:id", Component: Board }],
+    element: (
+      <PrivateRoute>
+        <BoardLayout />
+      </PrivateRoute>
+    ),
+    children: [{ path: "boards/:id", element: <Board /> }],
   },
 ];
+
 export default ClientRoute;

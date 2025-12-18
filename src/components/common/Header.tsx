@@ -7,6 +7,8 @@ import {
   LogOut,
   ChevronDown,
   Menu,
+  Languages,
+  PaintBucket,
 } from "lucide-react";
 import Sidebar from "../common/Sidebar";
 import { Drawer } from "antd";
@@ -47,6 +49,18 @@ const TrelloHeader = () => {
       key: "settings",
       label: "Cài đặt",
       icon: <Settings className="w-4 h-4" />,
+      onClick: () => console.log("Mở cài đặt"),
+    },
+    {
+      key: "theme",
+      label: "Chủ đề",
+      icon: <PaintBucket className="w-4 h-4" />,
+      onClick: () => console.log("Mở chủ đề"),
+    },
+    {
+      key: "theme",
+      label: "Ngôn ngữ",
+      icon: <Languages className="w-4 h-4" />,
       onClick: () => console.log("Mở cài đặt"),
     },
     {
