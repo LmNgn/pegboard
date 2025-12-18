@@ -3,12 +3,12 @@ import { Lock, Mail, User } from "lucide-react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { registerApi } from "../../../api/auth";
 import googleLogo from "../../../assets/google.png";
 import trenoLogo from "../../../assets/treno.png";
 import { RegisterSchema } from "../../../schema/authSchema";
 import type { AuthInfo } from "../../../types/auth";
 import renderError from "../../../utils/renderError";
-import { registerApi } from "../../../api/auth";
 const Register = () => {
   const {
     register,
