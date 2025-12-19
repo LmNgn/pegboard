@@ -9,8 +9,11 @@ import trenoLogo from "../../../assets/treno.png";
 import { LoginSchema } from "../../../schema/authSchema";
 import type { AuthInfo } from "../../../types/auth";
 import renderError from "../../../utils/renderError";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../features/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -21,10 +24,16 @@ const Login = () => {
   const onSubmit = async (data: AuthInfo) => {
     try {
       const res = await loginApi(data);
-      const storage = data.remember ? localStorage : sessionStorage;
       console.log(res);
-      storage.setItem("token", res.accessToken);
-      storage.setItem("email", res.user.email);
+      dispatch(
+        setUser({
+          user: res.user,
+          token: res.accessToken,
+        })
+      );
+      // const storage = data.remember ? localStorage : sessionStorage;
+      // storage.setItem("token", res.accessToken);
+      // storage.setItem("email", res.user.email);
       toast.success("Đăng nhập thành công");
       reset();
       nav("/");

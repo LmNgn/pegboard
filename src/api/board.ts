@@ -25,3 +25,8 @@ export const deleteBoard = async (id: number) => {
   const { data } = await api.delete(`/boards/${id}`);
   return data;
 };
+
+export const searchBoards = async (keyword: string) => {
+  const { data } = await api.get(`/boards/?q=${keyword}`);
+  return data;
+};

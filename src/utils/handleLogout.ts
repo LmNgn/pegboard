@@ -1,16 +1,17 @@
-import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { logout } from "../features/userSlice";
 
-export function handleLogout() {
+export function useLogout() {
+  const dispatch = useDispatch();
   const nav = useNavigate();
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    sessionStorage.clear();
+  const handleLogout = () => {
+    dispatch(logout());
     toast.success("Đăng xuất thành công");
-    nav("/login");
+    nav("/login", { replace: true });
   };
 
-  return logout;
+  return handleLogout;
 }

@@ -18,6 +18,6 @@ export const registerApi = async (body: AuthInfo) => {
 
 export const loginApi = async (body: AuthInfo) => {
   const res = await api.post("/login", body);
-  console.log(res.data);
+  console.log(res);
   return res.data;
 };

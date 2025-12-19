@@ -1,76 +1,87 @@
-import { useState } from "react";
+import type { MenuProps } from "antd";
+import { Button, Drawer, Dropdown, Typography } from "antd";
 import {
-  Search,
-  Plus,
-  User,
-  Settings,
-  LogOut,
-  ChevronDown,
-  Menu,
   Languages,
+  LogOut,
+  Menu as MenuIcon,
   PaintBucket,
+  Plus,
+  Search,
+  Settings,
+  User,
 } from "lucide-react";
+import { useState } from "react";
+import { useLogout } from "../../utils/handleLogout";
 import Sidebar from "../common/Sidebar";
-import { Drawer } from "antd";
 import { CreateBoardModal } from "./BoardModal";
 import LogoutModal from "./LogoutModal";
-import { handleLogout } from "../../utils/handleLogout";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
+import BoardSearch from "./BoardSearch";
+import toast from "react-hot-toast";
 
-const TrelloHeader = () => {
-  const [showCreateMenu, setShowCreateMenu] = useState(false);
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [showMobileSearch, setShowMobileSearch] = useState(false);
+const { Text } = Typography;
+
+const TrenoHeader = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const useLogout = handleLogout();
-  const createItems = [
+  const logout = useLogout();
+  const { user } = useSelector((state: RootState) => state.user);
+  /* tạo bảng */
+  const createItems: MenuProps["items"] = [
     {
-      key: "1",
+      key: "create-board",
       label: "Tạo bảng mới",
       onClick: () => setShowCreateBoardModal(true),
     },
-    // {
-    //   key: "2",
-    //   label: "Tạo danh sách mới",
-    //   onClick: () => console.log("Tạo danh sách mới"),
-    // },
-    // {
-    //   key: "3",
-    //   label: "Tạo thẻ mới",
-    //   onClick: () => console.log("Tạo thẻ mới"),
-    // },
   ];
 
-  const profileItems = [
+  /*profile */
+  const profileItems: MenuProps["items"] = [
     {
-      key: "profile",
-      label: "Hồ sơ",
-      icon: <User className="w-4 h-4" />,
-      onClick: () => console.log("Xem hồ sơ"),
+      key: "profile-info",
+      label: (
+        <div className="px-4 py-2">
+          <Text strong>{user?.username}</Text>
+          <br />
+          <Text type="secondary" style={{ fontSize: 12 }}>
+            {user?.email}
+          </Text>
+        </div>
+      ),
+      disabled: true,
     },
+    { type: "divider" },
     {
       key: "settings",
-      label: "Cài đặt",
+      label: "Cài đặt cá nhân",
       icon: <Settings className="w-4 h-4" />,
-      onClick: () => console.log("Mở cài đặt"),
     },
     {
       key: "theme",
       label: "Chủ đề",
       icon: <PaintBucket className="w-4 h-4" />,
-      onClick: () => console.log("Mở chủ đề"),
+      children: [
+        { key: "theme-light", label: "Sáng" },
+        { key: "theme-dark", label: "Tối" },
+      ],
     },
     {
       key: "language",
       label: "Ngôn ngữ",
       icon: <Languages className="w-4 h-4" />,
-      onClick: () => console.log("Mở cài đặt"),
+      children: [
+        { key: "lang-vi", label: "Tiếng Việt" },
+        { key: "lang-en", label: "English" },
+      ],
     },
+    { type: "divider" },
     {
       key: "logout",
       label: "Đăng xuất",
       icon: <LogOut className="w-4 h-4" />,
+      danger: true,
       onClick: () => setShowLogoutModal(true),
     },
   ];
@@ -78,18 +89,18 @@ const TrelloHeader = () => {
   return (
     <header className="bg-blue-600 px-3 py-2">
       <div className="flex items-center w-full">
-        {/* Logo + nút sidebar (dt) */}
+        {/* Logo */}
         <div className="flex items-center gap-2">
-          <button
-            className="block md:hidden text-white p-2"
+          <Button
+            type="text"
+            icon={<MenuIcon className="text-white" />}
+            className="md:hidden"
             onClick={() => setShowSidebar(true)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          />
           <span className="text-white font-bold text-xl">Treno</span>
         </div>
 
-        {/*  sidebar đt */}
+        {/* Sidebar mobile */}
         <Drawer
           title="Menu"
           placement="left"
@@ -99,116 +110,43 @@ const TrelloHeader = () => {
           <Sidebar />
         </Drawer>
 
-        {/* Search + Tạo ở giữa */}
+        {/* Tìm kiếm */}
         <div className="flex-1 flex justify-center items-center gap-3">
-          {/* search desktop */}
-          <div className="hidden md:flex max-w-md flex-1">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Tìm kiếm..."
-                className="w-full pl-10 pr-4 py-2 bg-white/90 hover:bg-white border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition-all text-sm"
-              />
-            </div>
+          <div className="hidden md:block w-full max-w-md">
+            <BoardSearch />
           </div>
 
-          {/* Searhc mobile */}
-          <button
-            className="block md:hidden text-white p-2"
-            onClick={() => setShowMobileSearch(!showMobileSearch)}
-          >
-            <Search className="w-5 h-5" />
-          </button>
+          {/* Chuyển tragn */}
+          <Button
+            type="text"
+            icon={<Search className="text-white" />}
+            className="md:hidden"
+            onClick={() => toast.success("chuyển sang trang tìm kiếm")}
+          />
 
-          {/* Nút tạo mới */}
-          <div className="relative">
-            <button
-              onClick={() => setShowCreateMenu(!showCreateMenu)}
-              className="flex items-center gap-2 px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition-colors text-sm font-medium"
-            >
-              <Plus className="w-4 h-4" />
+          {/* Create dropdown */}
+          <Dropdown menu={{ items: createItems }} trigger={["click"]}>
+            <Button type="primary" icon={<Plus className="w-4 h-4" />}>
               <span className="hidden sm:inline">Tạo mới</span>
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            {showCreateMenu && (
-              <>
-                <div
-                  className="fixed inset-0 z-10"
-                  onClick={() => setShowCreateMenu(false)}
-                />
-                <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20">
-                  {createItems.map((item) => (
-                    <button
-                      key={item.key}
-                      onClick={() => {
-                        item.onClick();
-                        setShowCreateMenu(false);
-                      }}
-                      className="w-full text-left px-4 py-2.5 hover:bg-gray-100 transition-colors text-sm text-gray-700"
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
+            </Button>
+          </Dropdown>
         </div>
 
-        {/* Profile */}
-        <div className="flex items-center gap-1 ml-auto">
-          <div className="relative">
-            <button
-              onClick={() => setShowProfileMenu(!showProfileMenu)}
-              className="w-9 h-9 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center text-white font-semibold"
-            >
-              <User />
-            </button>
-            {showProfileMenu && (
-              <>
-                <div
-                  className="fixed inset-0 z-10"
-                  onClick={() => setShowProfileMenu(false)}
-                />
-                <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20">
-                  <div className="px-4 py-3 border-b border-gray-200">
-                    <p className="text-sm font-semibold text-gray-900">
-                      User Name
-                    </p>
-                    <p className="text-xs text-gray-500">user@example.com</p>
-                  </div>
-                  {profileItems.map((item) => (
-                    <button
-                      key={item.key}
-                      onClick={() => {
-                        item.onClick();
-                        setShowProfileMenu(false);
-                      }}
-                      className="w-full text-left px-4 py-2.5 hover:bg-gray-100 transition-colors text-sm text-gray-700 flex items-center gap-3"
-                    >
-                      {item.icon}
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+        {/*dropdown Profile */}
+        <Dropdown
+          menu={{ items: profileItems }}
+          trigger={["click"]}
+          placement="bottomRight"
+        >
+          <Button
+            type="text"
+            shape="circle"
+            icon={<User className="text-white" />}
+          />
+        </Dropdown>
       </div>
 
-      {/*  search đt  */}
-      {showMobileSearch && (
-        <div className="mt-2 md:hidden">
-          <input
-            type="text"
-            placeholder="Tìm kiếm..."
-            className="w-full pl-3 pr-4 py-2 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm"
-          />
-        </div>
-      )}
-      {/* tạo modal */}
+      {/* Modals */}
       <CreateBoardModal
         open={showCreateBoardModal}
         onClose={() => setShowCreateBoardModal(false)}
@@ -216,10 +154,10 @@ const TrelloHeader = () => {
       <LogoutModal
         open={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
-        onConfirm={useLogout}
+        onConfirm={logout}
       />
     </header>
   );
 };
 
-export default TrelloHeader;
+export default TrenoHeader;
