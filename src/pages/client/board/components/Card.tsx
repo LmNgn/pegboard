@@ -114,7 +114,6 @@ const CardItem = ({
               {card.description ?? "Chưa có mô tả"}
             </div>
 
-            {/* Card metadata preview */}
             <div className="flex flex-col gap-2 text-xs">
               {card.tags && card.tags.length > 0 && (
                 <div className="flex items-center gap-1 flex-wrap">

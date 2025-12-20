@@ -322,8 +322,8 @@ const CardDetailModal = ({
                 placeholder="Chọn thành viên"
                 className="w-full"
                 options={members.map((member) => ({
-                  label: member.email, // hoặc member.name nếu có
-                  value: member.id, // dùng id làm value
+                  label: member.email, 
+                  value: member.id,
                 }))}
               />
             )}

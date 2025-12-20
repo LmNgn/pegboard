@@ -20,7 +20,7 @@ import api from "../../../api";
 import { CreateBoardModal } from "../../../components/common/BoardModal";
 import CreateBoardCard from "./components/CreateBoardCard";
 
-// Hook để lấy thông tin user hiện tại (bạn có thể thay đổi theo cách bạn quản lý auth)
+// Hook để lấy thông tin user hiện tại
 const useCurrentUser = () => {
   // Giả sử bạn lưu user trong localStorage hoặc context
   const userStr = localStorage.getItem("user");
@@ -168,7 +168,7 @@ const BoardList = () => {
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Bảng ưu tiên (Starred Boards) */}
+        {/* Bảng ưu tiên  */}
         {starredBoards.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center gap-2 mb-6">
@@ -186,7 +186,7 @@ const BoardList = () => {
           </section>
         )}
 
-        {/* Bảng của tôi (My Boards) */}
+        {/* Bảng của tôi  */}
         <section className="mb-12">
           <div className="flex items-center gap-2 mb-6">
             <AppstoreOutlined className="text-blue-500 text-xl" />
@@ -228,7 +228,7 @@ const BoardList = () => {
           )}
         </section>
 
-        {/* Bảng khách (Guest Boards) */}
+        {/* Bảng khách */}
         <section>
           <div className="flex items-center gap-2 mb-6">
             <TeamOutlined className="text-green-500 text-xl" />

@@ -48,26 +48,22 @@ export const useBoardMutations = (id: string | undefined) => {
       return newBoard;
     },
     onMutate: async (newBoard) => {
-      // Cancel outgoing refetches
       await queryClient.cancelQueries({ queryKey: ["board", id] });
 
-      // Snapshot previous value
       const previousBoard = queryClient.getQueryData(["board", id]);
 
-      // Optimistically update
       queryClient.setQueryData(["board", id], newBoard);
 
       return { previousBoard };
     },
     onError: (err, newBoard, context) => {
-      // Rollback on error
+      console.log(newBoard);
       if (context?.previousBoard) {
         queryClient.setQueryData(["board", id], context.previousBoard);
       }
       console.error("Update board error:", err);
     },
     onSettled: () => {
-      // Refetch after error or success
       queryClient.invalidateQueries({ queryKey: ["board", id] });
     },
   });
