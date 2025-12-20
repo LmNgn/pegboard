@@ -35,3 +35,22 @@ export const RegisterSchema = z
     message: "Mật khẩu xác nhận không khớp",
     path: ["confirmPassword"],
   });
+export const ChangePasswordSchema = z
+  .object({
+    currentPassword: z
+      .string({ message: "Mật khẩu hiện tại không được bỏ trống" })
+      .min(8, { message: "Mật khẩu phải có ít nhất 8 ký tự" })
+      .max(20, { message: "Mật khẩu không được quá 20 ký tự" }),
+    newPassword: z
+      .string({ message: "Mật khẩu mới không được bỏ trống" })
+      .min(8, { message: "Mật khẩu mới phải có ít nhất 8 ký tự" })
+      .max(20, { message: "Mật khẩu mới không được quá 20 ký tự" }),
+    confirmPassword: z
+      .string({ message: "Vui lòng xác nhận mật khẩu mới" })
+      .min(8, { message: "Xác nhận mật khẩu phải có ít nhất 8 ký tự" })
+      .max(20, { message: "Xác nhận mật khẩu không được quá 20 ký tự" }),
+  })
+  .refine((val) => val.confirmPassword === val.newPassword, {
+    message: "Mật khẩu xác nhận không khớp",
+    path: ["confirmPassword"],
+  });

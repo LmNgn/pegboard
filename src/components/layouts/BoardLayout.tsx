@@ -1,10 +1,10 @@
-import { Header } from "antd/es/layout/layout";
 import { Outlet } from "react-router-dom";
+import TrenoHeader from "../common/Header";
 
 const BoardLayout = () => {
   return (
     <div>
-      <Header />
+      <TrenoHeader />
       <Outlet />
     </div>
   );

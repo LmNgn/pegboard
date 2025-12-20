@@ -3,8 +3,8 @@ import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearch } from "../../hooks/useBoard";
-import { type Board } from "../../test/board";
 import { searchBoards } from "../../api/board";
+import type { Board } from "../../types/board";
 
 const BoardSearch = () => {
   const [keyword, setKeyword] = useState("");
@@ -40,9 +40,6 @@ const BoardSearch = () => {
           label: (
             <div className="flex flex-col items-start text-black">
               <span className="block truncate font-medium">{board.title}</span>
-              <span className="block truncate text-xs text-gray-500">
-                {board.description}
-              </span>
             </div>
           ),
           id: board.id,

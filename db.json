@@ -30,199 +30,449 @@
     },
     {
       "email": "gintoki6987@gmail.com",
-      "password": "$2a$10$QA5s28w.e3yyGarGZygdZ.rgN8nQ0zMLr7txCDF0Bx0X/m7kNdJgK",
-      "username": "oril123",
+      "password": "$2a$10$UxoIDp3V06Q5d6BgYukbyuE3o4FgpPuydYbif78mqAK8eknOwxk9W",
+      "username": "o2ril123",
       "terms": true,
       "id": 5
+    },
+    {
+      "email": "jadaveon.azel@fontfee.com",
+      "password": "$2a$10$zojXFaiebv7NLN45qS8SYuECchYxMKWmt9GGEDUeNSypjzeveAb.q",
+      "username": "oril312",
+      "id": 6
     }
   ],
   "boards": [
     {
-      "title": "123123 update",
+      "title": "123123",
       "description": "123123",
-      "ownerId": 1,
+      "stared": false,
+      " ": 1,
       "columns": [
         {
-          "id": "col-1765859405202",
-          "title": "New Column",
-          "cards": []
-        },
-        {
-          "id": "col-1765859405941",
-          "title": "New Column",
+          "id": "column-1766202270795",
+          "title": "123",
           "cards": [
             {
-              "id": "card-1765859734742",
-              "title": "New Card",
-              "columnId": "col-1765859405941"
+              "id": "card-1766202349694",
+              "title": "123",
+              "description": "xin chào",
+              "tags": [
+                "đẹp"
+              ],
+              "deadline": "2025-12-19T22:06:00.000Z",
+              "images": [],
+              "assignees": [
+                "Phạm Thị D"
+              ]
             }
           ]
         },
         {
-          "id": "column-1765862651657",
-          "title": "New Column",
-          "cards": [
-            {
-              "id": "card-1765869149161",
-              "title": "New Card",
-              "columnId": "column-1765862651657"
-            }
-          ]
-        },
-        {
-          "id": "column-1765862662933",
-          "title": "New Column",
-          "cards": [
-            {
-              "id": "card-1765870850994",
-              "title": "New Card",
-              "columnId": "column-1765862662933"
-            }
-          ]
-        },
-        {
-          "id": "column-1765866442564",
-          "title": "New Column",
+          "id": "column-1766202374911",
+          "title": "123123",
           "cards": []
         }
       ],
-      "id": 1
+      "id": 2,
+      "starred": false
     },
     {
       "title": "123",
       "description": "123",
-      "ownerId": 1,
+      "stared": false,
+      "ownerId": 5,
       "columns": [],
-      "id": 2
+      "id": 3,
+      "members": [
+        {
+          "email": "123@gmail.com",
+          "name": "123123",
+          "role": 2,
+          "id": "member-1766202072141",
+          "addedAt": "2025-12-20T03:41:12.141Z"
+        }
+      ],
+      "starred": true
     },
     {
       "title": "123123",
       "description": "123123",
-      "ownerId": 1,
-      "id": 3
+      "stared": false,
+      "ownerId": 5,
+      "columns": [
+        {
+          "id": "column-1766204907722",
+          "title": "123",
+          "cards": []
+        }
+      ],
+      "id": 5,
+      "starred": true,
+      "members": [
+        {
+          "email": "gintoki6987@gmail.com",
+          "name": "oril123",
+          "role": 1,
+          "id": "member-1766206142806",
+          "addedAt": "2025-12-20T04:49:02.806Z"
+        }
+      ]
     },
     {
-      "title": "123123",
-      "description": "123123",
-      "ownerId": 1,
-      "id": 4
+      "title": "123",
+      "description": "đẹp",
+      "stared": false,
+      "ownerId": 5,
+      "columns": [
+        {
+          "id": "column-1766207003717",
+          "title": "123",
+          "cards": [
+            {
+              "id": "card-1766207014749",
+              "title": "123"
+            },
+            {
+              "id": "card-1766207016484",
+              "title": "123"
+            }
+          ]
+        }
+      ],
+      "id": 6,
+      "members": [
+        {
+          "email": "phuclam6987@gmail.com",
+          "role": 1,
+          "id": "member-1766206773563",
+          "addedAt": "2025-12-20T04:59:33.563Z"
+        }
+      ]
     },
     {
-      "title": "123123",
-      "description": "123123",
-      "ownerId": 1,
-      "id": 5
-    },
-    {
-      "title": "xin chào",
-      "description": "123123",
-      "ownerId": 1,
-      "id": 6
-    },
-    {
-      "title": "xin chào",
-      "description": "123123",
-      "ownerId": 1,
+      "title": "bảng test",
+      "description": "",
+      "stared": false,
+      "ownerId": 5,
+      "columns": [],
       "id": 7
     },
     {
-      "title": "xin chào",
-      "description": "123",
+      "title": "test2",
+      "description": "",
       "stared": false,
-      "ownerId": 1,
-      "boards": [],
+      "ownerId": 5,
+      "columns": [],
       "id": 8
     },
     {
-      "title": "123123",
-      "description": "123123",
-      "stared": false,
-      "ownerId": 1,
+      "title": "123",
+      "description": "",
+      "starred": false,
+      "ownerId": 5,
       "columns": [
         {
-          "id": "column-1765868944907",
-          "title": "New Column",
-          "cards": []
-        },
-        {
-          "id": "column-1765868948992",
-          "title": "New Column",
+          "id": "column-1766207674904",
+          "title": "123123",
           "cards": [
             {
-              "id": "card-1765868949859",
-              "title": "New Card xin chào",
-              "columnId": "column-1765868948992"
+              "id": "card-1766207678386",
+              "title": "123",
+              "description": "",
+              "tags": [],
+              "deadline": "",
+              "images": [],
+              "assignees": [
+                "member-1766207638726"
+              ]
             }
           ]
+        },
+        {
+          "id": "column-1766207676696",
+          "title": "123123",
+          "cards": []
+        }
+      ],
+      "members": [
+        {
+          "id": "member-1766207638726",
+          "email": "gintoki6987@gmail.com",
+          "name": "o2ril123",
+          "role": 0,
+          "addedAt": "2025-12-20T05:13:58.726Z"
         }
       ],
       "id": 9
     },
     {
-      "title": "123123",
-      "description": "123123",
-      "stared": false,
-      "ownerId": 1,
+      "title": "hgf",
+      "description": "",
+      "starred": false,
+      "ownerId": 5,
       "columns": [],
+      "members": [
+        {
+          "id": "member-1766208553735",
+          "email": "gintoki6987@gmail.com",
+          "name": "o2ril123",
+          "role": 0,
+          "addedAt": "2025-12-20T05:29:13.735Z"
+        }
+      ],
       "id": 10
     },
     {
-      "title": "123123",
-      "description": "123123",
-      "stared": false,
-      "ownerId": 1,
+      "title": "123",
+      "description": "",
+      "starred": false,
+      "ownerId": 5,
       "columns": [],
+      "members": [
+        {
+          "id": "member-1766208819139",
+          "email": "gintoki6987@gmail.com",
+          "name": "o2ril123",
+          "role": 0,
+          "addedAt": "2025-12-20T05:33:39.139Z"
+        },
+        {
+          "email": "phuclam6987@gmail.com",
+          "role": 1,
+          "id": "member-1766209026892",
+          "addedAt": "2025-12-20T05:37:06.892Z"
+        }
+      ],
       "id": 11
     },
     {
-      "title": "new",
+      "title": "123",
       "description": "",
-      "stared": false,
-      "ownerId": 1,
-      "columns": [
+      "starred": false,
+      "ownerId": 4,
+      "columns": [],
+      "members": [
         {
-          "id": "column-1765871380193",
-          "title": "1",
-          "cards": []
-        },
-        {
-          "id": "column-1765871384942",
-          "title": "New Column",
-          "cards": []
-        },
-        {
-          "id": "column-1765871635286",
-          "title": "New Column",
-          "cards": []
-        },
-        {
-          "id": "column-1765871636133",
-          "title": "New Column",
-          "cards": [
-            {
-              "id": "card-1765871370326",
-              "title": "New ",
-              "columnId": "column-1765871636133"
-            }
-          ]
-        },
-        {
-          "id": "column-1766067752519",
-          "title": "New Column",
-          "cards": []
+          "id": "member-1766209071971",
+          "email": "phuclam6987@gmail.com",
+          "name": "",
+          "role": 0,
+          "addedAt": "2025-12-20T05:37:51.971Z"
         }
       ],
       "id": 12
-    },
-    {
-      "title": "hello",
-      "description": "Lam",
-      "stared": false,
-      "ownerId": 1,
-      "columns": [],
-      "id": 13
     }
   ],
-  "lists": [],
-  "tasks": []
+  "activities": [
+    {
+      "boardId": 3,
+      "type": "MEMBER_ADDED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã thêm 123@gmail.com vào bảng với vai trò 2",
+      "timestamp": "2025-12-20T03:41:12.141Z",
+      "id": "activity-1766202072141-7i8076phy"
+    },
+    {
+      "boardId": 2,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123\"",
+      "timestamp": "2025-12-20T03:44:30.795Z",
+      "id": "activity-1766202270795-8vhlckfrn"
+    },
+    {
+      "boardId": 2,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"xin chào\"",
+      "timestamp": "2025-12-20T03:44:39.303Z",
+      "id": "activity-1766202279303-od048a2rm"
+    },
+    {
+      "boardId": 2,
+      "type": "COLUMN_DELETED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã xóa cột \"xin chào\"",
+      "timestamp": "2025-12-20T03:44:42.727Z",
+      "id": "activity-1766202282727-ya7l8a0r8"
+    },
+    {
+      "boardId": 2,
+      "type": "CARD_CREATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo thẻ \"123\" trong cột \"123\"",
+      "timestamp": "2025-12-20T03:45:49.694Z",
+      "id": "activity-1766202349694-rmrnrc9er"
+    },
+    {
+      "boardId": 2,
+      "type": "CARD_UPDATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã cập nhật thẻ \"123\" trong cột \"123\"",
+      "timestamp": "2025-12-20T03:45:55.973Z",
+      "id": "activity-1766202355973-7rqsenqed"
+    },
+    {
+      "boardId": 2,
+      "type": "CARD_UPDATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã cập nhật thẻ \"123\" trong cột \"123\"",
+      "timestamp": "2025-12-20T03:46:06.096Z",
+      "id": "activity-1766202366096-jbvlkbcs7"
+    },
+    {
+      "boardId": 2,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123123\"",
+      "timestamp": "2025-12-20T03:46:14.911Z",
+      "id": "activity-1766202374911-lk39nlj1j"
+    },
+    {
+      "boardId": 5,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123\"",
+      "timestamp": "2025-12-20T04:28:27.722Z",
+      "id": "activity-1766204907722-ir8rjyt20"
+    },
+    {
+      "boardId": 5,
+      "type": "MEMBER_ADDED",
+      "userId": 5,
+      "userName": "oril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã thêm gintoki6987@gmail.com vào bảng",
+      "timestamp": "2025-12-20T04:49:02.806Z",
+      "id": "activity-1766206142806-5k068hzcs"
+    },
+    {
+      "boardId": 6,
+      "type": "MEMBER_ADDED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã thêm phuclam6987@gmail.com vào bảng",
+      "timestamp": "2025-12-20T04:59:33.563Z",
+      "id": "activity-1766206773563-u1zwcg32g"
+    },
+    {
+      "boardId": 6,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123\"",
+      "timestamp": "2025-12-20T05:03:23.717Z",
+      "id": "activity-1766207003717-v8nrh2guu"
+    },
+    {
+      "boardId": 6,
+      "type": "CARD_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo thẻ \"123\" trong cột \"123\"",
+      "timestamp": "2025-12-20T05:03:34.749Z",
+      "id": "activity-1766207014749-7nswhdsn3"
+    },
+    {
+      "boardId": 6,
+      "type": "CARD_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo thẻ \"123\" trong cột \"123\"",
+      "timestamp": "2025-12-20T05:03:36.484Z",
+      "id": "activity-1766207016484-o1e2c9hce"
+    },
+    {
+      "boardId": 9,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123123\"",
+      "timestamp": "2025-12-20T05:14:34.904Z",
+      "id": "activity-1766207674904-lav6o76dp"
+    },
+    {
+      "boardId": 9,
+      "type": "COLUMN_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo cột \"123123\"",
+      "timestamp": "2025-12-20T05:14:36.696Z",
+      "id": "activity-1766207676696-gwwdvfctx"
+    },
+    {
+      "boardId": 9,
+      "type": "CARD_CREATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã tạo thẻ \"123\" trong cột \"123123\"",
+      "timestamp": "2025-12-20T05:14:38.386Z",
+      "id": "activity-1766207678386-t1tbx8r4a"
+    },
+    {
+      "boardId": 9,
+      "type": "CARD_UPDATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã cập nhật thẻ \"123\" trong cột \"123123\"",
+      "timestamp": "2025-12-20T05:25:47.055Z",
+      "id": "activity-1766208347055-m3lltgd07"
+    },
+    {
+      "boardId": 9,
+      "type": "CARD_UPDATED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã cập nhật thẻ \"123\" trong cột \"123123\"",
+      "timestamp": "2025-12-20T05:25:51.622Z",
+      "id": "activity-1766208351622-r9y3r58lj"
+    },
+    {
+      "boardId": 11,
+      "type": "MEMBER_ADDED",
+      "userId": 5,
+      "userName": "o2ril123",
+      "userEmail": "gintoki6987@gmail.com",
+      "description": "đã thêm phuclam6987@gmail.com vào bảng",
+      "timestamp": "2025-12-20T05:37:06.892Z",
+      "id": "activity-1766209026892-lqsu5ool8"
+    },
+    {
+      "boardId": 11,
+      "type": "BOARD_UPDATED",
+      "userId": 4,
+      "userEmail": "phuclam6987@gmail.com",
+      "description": "đã đổi tên bảng từ \"bnm\" thành \"123\"",
+      "timestamp": "2025-12-20T05:37:34.599Z",
+      "id": "activity-1766209054599-7b3116ogw"
+    }
+  ]
 }

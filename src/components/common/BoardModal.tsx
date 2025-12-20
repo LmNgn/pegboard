@@ -1,13 +1,14 @@
 import { Modal } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { boardSchema } from "../../schema/boardSchema";
 import renderError from "../../utils/renderError";
 import handleAuthForm from "../../utils/handleAuthForm";
 import { createBoard } from "../../api/board";
 import { addBoard } from "../../features/boardSlices";
 import toast from "react-hot-toast";
-import type { Board } from "../../types/board";
+import { Role, type Board } from "../../types/board";
 import { useNavigate } from "react-router-dom";
+import type { RootState } from "../../store";
 
 export function CreateBoardModal({
   open,
@@ -21,11 +22,29 @@ export function CreateBoardModal({
     boardSchema,
     "Tạo bảng"
   );
+  const { user } = useSelector((state: RootState) => state.user);
+
   const nav = useNavigate();
   // tạo wrapper cho onSubmit để thêm Redux
   const handleCreateBoard = async (data: Board) => {
+    if (!user || typeof user.id !== "number") throw new Error("Chưa đăng nhập");
+
     try {
-      const newBoard = { ...data, stared: false, ownerId: 1, columns: [] };
+      const newBoard = {
+        ...data,
+        starred: false,
+        ownerId: user.id,
+        columns: [],
+        members: [
+          {
+            id: `member-${Date.now()}`,
+            email: user?.email || "",
+            name: user?.username || "",
+            role: Role.OWNER,
+            addedAt: new Date().toISOString(),
+          },
+        ],
+      };
       const res = await createBoard(newBoard);
 
       dispatch(addBoard(res.data));

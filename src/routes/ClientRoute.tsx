@@ -16,7 +16,7 @@ const ClientRoute = [
       </PrivateRoute>
     ),
     children: [
-      { index: true, element: <Navigate to="/home" /> },
+      { index: true, element: <Navigate to="/boards" /> },
       { path: "home", element: <HomePage /> },
       { path: "boards", element: <BoardList /> },
     ],

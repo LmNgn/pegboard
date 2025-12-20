@@ -1,10 +1,24 @@
 import type { Column } from "./column";
 
+export enum Role {
+  OWNER = 0,
+  MEMBER = 1,
+  VIEWER = 2,
+}
+
+export interface BoardMember {
+  id: string;
+  email: string;
+  name: string;
+  role: Role;
+  addedAt: string;
+}
+
 export interface Board {
-  id?: number;
+  id: string;
   title: string;
-  description?: string;
-  stared: boolean;
-  ownerId?: number;
-  columns?: Column[];
+  ownerId: number;
+  starred?: boolean;
+  columns: Column[];
+  members?: BoardMember[];
 }

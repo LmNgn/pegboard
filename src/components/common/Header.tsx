@@ -1,24 +1,31 @@
+"use client";
+
 import type { MenuProps } from "antd";
 import { Button, Drawer, Dropdown, Typography } from "antd";
 import {
   Languages,
   LogOut,
-  Menu as MenuIcon,
+  MenuIcon,
   PaintBucket,
   Plus,
   Search,
   Settings,
+  Trello,
   User,
+  Sun,
+  Moon,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLogout } from "../../utils/handleLogout";
 import Sidebar from "../common/Sidebar";
 import { CreateBoardModal } from "./BoardModal";
 import LogoutModal from "./LogoutModal";
+import ChangePasswordModal from "./ChangPasswordModal";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 import BoardSearch from "./BoardSearch";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -26,8 +33,36 @@ const TrenoHeader = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved === "dark";
+  });
+
+  const nav = useNavigate();
   const logout = useLogout();
   const { user } = useSelector((state: RootState) => state.user);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
+  const handleThemeChange = (key: string) => {
+    if (key === "theme-light") {
+      setIsDarkMode(false);
+      toast.success("Đã chuyển sang giao diện sáng");
+    } else if (key === "theme-dark") {
+      setIsDarkMode(true);
+      toast.success("Đã chuyển sang giao diện tối");
+    }
+  };
+
   /* tạo bảng */
   const createItems: MenuProps["items"] = [
     {
@@ -57,14 +92,40 @@ const TrenoHeader = () => {
       key: "settings",
       label: "Cài đặt cá nhân",
       icon: <Settings className="w-4 h-4" />,
+      onClick: () => setShowChangePasswordModal(true),
     },
     {
       key: "theme",
-      label: "Chủ đề",
+      label: (
+        <span className="flex items-center gap-2">
+          Chủ đề
+          {isDarkMode ? (
+            <Moon className="w-3 h-3" />
+          ) : (
+            <Sun className="w-3 h-3" />
+          )}
+        </span>
+      ),
       icon: <PaintBucket className="w-4 h-4" />,
       children: [
-        { key: "theme-light", label: "Sáng" },
-        { key: "theme-dark", label: "Tối" },
+        {
+          key: "theme-light",
+          label: (
+            <span className="flex items-center gap-2">
+              <Sun className="w-4 h-4" /> Sáng
+            </span>
+          ),
+          onClick: () => handleThemeChange("theme-light"),
+        },
+        {
+          key: "theme-dark",
+          label: (
+            <span className="flex items-center gap-2">
+              <Moon className="w-4 h-4" /> Tối
+            </span>
+          ),
+          onClick: () => handleThemeChange("theme-dark"),
+        },
       ],
     },
     {
@@ -87,17 +148,25 @@ const TrenoHeader = () => {
   ];
 
   return (
-    <header className="bg-blue-600 px-3 py-2">
+    <header className="bg-blue-600 dark:bg-gray-800 px-3 py-2 transition-colors">
       <div className="flex items-center w-full">
         {/* Logo */}
         <div className="flex items-center gap-2">
+          <div className="md:hidden">
+            <Button
+              type="text"
+              icon={<MenuIcon stroke="white" />}
+              onClick={() => setShowSidebar(true)}
+            />
+          </div>
           <Button
             type="text"
-            icon={<MenuIcon className="text-white" />}
-            className="md:hidden"
-            onClick={() => setShowSidebar(true)}
-          />
-          <span className="text-white font-bold text-xl">Treno</span>
+            className="flex items-center gap-2 text-white! font-bold! text-xl!"
+            icon={<Trello size={20} stroke="white" />}
+            onClick={() => nav("/boards")}
+          >
+            Treno
+          </Button>
         </div>
 
         {/* Sidebar mobile */}
@@ -116,13 +185,15 @@ const TrenoHeader = () => {
             <BoardSearch />
           </div>
 
-          {/* Chuyển tragn */}
-          <Button
-            type="text"
-            icon={<Search className="text-white" />}
-            className="md:hidden"
-            onClick={() => toast.success("chuyển sang trang tìm kiếm")}
-          />
+          {/* Chuyển trang */}
+          <div className="md:hidden">
+            <Button
+              type="text"
+              icon={<Search size={25} stroke="white" />}
+              className="hover:bg-white/10"
+              onClick={() => toast.success("chuyển sang trang tìm kiếm")}
+            />
+          </div>
 
           {/* Create dropdown */}
           <Dropdown menu={{ items: createItems }} trigger={["click"]}>
@@ -138,11 +209,7 @@ const TrenoHeader = () => {
           trigger={["click"]}
           placement="bottomRight"
         >
-          <Button
-            type="text"
-            shape="circle"
-            icon={<User className="text-white" />}
-          />
+          <Button type="text" shape="circle" icon={<User stroke="white" />} />
         </Dropdown>
       </div>
 
@@ -155,6 +222,10 @@ const TrenoHeader = () => {
         open={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
         onConfirm={logout}
+      />
+      <ChangePasswordModal
+        open={showChangePasswordModal}
+        onClose={() => setShowChangePasswordModal(false)}
       />
     </header>
   );
